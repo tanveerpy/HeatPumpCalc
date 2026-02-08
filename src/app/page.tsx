@@ -1,65 +1,134 @@
-import Image from "next/image";
+import { Metadata } from 'next';
+import { HeatPumpCalculator } from '@/components/calculator/HeatPumpCalculator';
+import { AdUnit } from "@/components/ads/AdUnit";
+
+export const metadata: Metadata = {
+  title: "Heat Pump Cost Calculator | 2026 Installation & Savings Est.",
+  description: "Calculate your potential savings by switching to a heat pump. Compare costs against Gas, Oil, and Electric heating for your specific home size and climate.",
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="min-h-screen font-[family-name:var(--font-geist-sans)]">
+
+      {/* Hero Section */}
+      <section className="bg-white text-slate-900 pt-12 pb-6 relative overflow-hidden">
+        <div className="container mx-auto px-4 z-10 relative">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+              Is a Heat Pump <span className="text-emerald-600">Worth It?</span>
+            </h1>
+            <p className="text-xl text-slate-600 mb-8">
+              Calculate your real-world installation costs and savings for 2026.
+              Compare against Gas, Oil, and Propane furnaces.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-1 shadow-2xl text-slate-900 mx-auto max-w-6xl">
+            <HeatPumpCalculator theme="light" />
+          </div>
+        </div>
+      </section>
+
+      {/* Ad Placement */}
+      <div className="container mx-auto px-4">
+        <AdUnit slotId="1234567890" />
+      </div>
+
+      {/* Trust Signals */}
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="p-6 bg-white rounded-lg shadow-sm border border-border">
+          <h3 className="font-semibold text-lg mb-2">Up-to-Date 2026 Data</h3>
+          <p className="text-muted-foreground text-sm">Based on latest equipment pricing and national energy averages.</p>
+        </div>
+        <div className="p-6 bg-white rounded-lg shadow-sm border border-border">
+          <h3 className="font-semibold text-lg mb-2">Inflation Reduction Act</h3>
+          <p className="text-muted-foreground text-sm">Includes estimates for the $2,000 federal tax credit (25C). </p>
+        </div>
+        <div className="p-6 bg-white rounded-lg shadow-sm border border-border">
+          <h3 className="font-semibold text-lg mb-2">Climate Adjusted</h3>
+          <p className="text-muted-foreground text-sm">Efficiency calculations based on your specific climate zone.</p>
+        </div>
+      </div>
+
+      {/* FAQ Section & Schema */}
+      <section className="container max-w-4xl py-20">
+        <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-border">
+            <h3 className="font-semibold text-lg mb-2">How much does a heat pump cost installed?</h3>
+            <p className="text-muted-foreground">
+              For a typical 2000 sq ft home, a ducted air-source heat pump costs between <strong>$12,000 and $20,000</strong> after installation.
+              Ductless mini-splits typically cost $4,000 - $6,000 per zone.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-border">
+            <h3 className="font-semibold text-lg mb-2">Do heat pumps work in cold weather?</h3>
+            <p className="text-muted-foreground">
+              Yes. Modern &quot;cold climate&quot; heat pumps (like HyperHeat) can maintain 100% efficiency down to 5°F and continue working down to -13°F or lower.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-border">
+            <h3 className="font-semibold text-lg mb-2">Are heat pumps worth the money?</h3>
+            <p className="text-muted-foreground">
+              If you are replacing an oil or propane furnace, the ROI is often under 5 years.
+              Replacing natural gas takes longer (8-12 years) unless you also need to replace your AC unit, in which case the switch makes financial sense immediately.
+            </p>
+          </div>
+        </div>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "SoftwareApplication",
+                  "name": "Heat Pump Cost Calculator",
+                  "applicationCategory": "FinanceApplication",
+                  "operatingSystem": "Web",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  }
+                },
+                {
+                  "@type": "FAQPage",
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "How much does a heat pump cost installed?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "For a typical 2000 sq ft home, a ducted air-source heat pump costs between $12,000 and $20,000 after installation. Ductless mini-splits typically cost $4,000 - $6,000 per zone."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Do heat pumps work in cold weather?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Modern cold climate heat pumps (like HyperHeat) can maintain 100% efficiency down to 5°F and continue working down to -13°F or lower."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Are heat pumps worth the money?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "If you are replacing an oil or propane furnace, the ROI is often under 5 years. Replacing natural gas takes longer (8-12 years) unless you also need to replace your AC unit, in which case the switch makes financial sense immediately."
+                      }
+                    }
+                  ]
+                }
+              ]
+            })
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+    </main >
   );
 }
