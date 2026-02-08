@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Heat Pump Cost Calculator 2026 | Installation & Savings Estimator",
   description: "Calculate accurate heat pump installation costs and annual savings. Compare Air Source vs Geothermal, and see your ROI with 2026 tax credits.",
+  verification: {
+    google: "yiTVCtyuAqdVZ1xKLWArR1Ax1gkffX00CPwKiJlyZ-s",
+  },
 };
 
 import { Header } from "@/components/ui/Header";
